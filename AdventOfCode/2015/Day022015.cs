@@ -19,9 +19,9 @@ namespace com.randyslavey.AdventOfCode
             return $"{Result}";
         }
 
-        public void GetInputData(string filePath)
+        public void GetInputData(string file)
         {
-            InputValues = File.ReadAllLines(filePath);
+            InputValues = File.ReadAllLines(file);
             foreach (var line in InputValues)
             {
                 SplitInputValues.Add(

@@ -36,10 +36,10 @@ namespace com.randyslavey.AdventOfCode
             return $"{Result}";
         }
 
-        public void GetInputData(string filePath)
+        public void GetInputData(string file)
         {
             var r = new Regex(@"^(.*) to (.*) = (.*)$");
-            foreach(var line in File.ReadAllLines(filePath))
+            foreach(var line in File.ReadAllLines(file))
             {
                 var m = r.Match(line);
                 FormattedInputs.Add((m.Groups[1].Value, m.Groups[2].Value, int.Parse(m.Groups[3].Value)));

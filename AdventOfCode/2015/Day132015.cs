@@ -32,9 +32,8 @@ namespace com.randyslavey.AdventOfCode
                 var distance = 0;
                 for (var i = 0; i < p.Count() - 1; i++)
                 {
-                    var gap1 = FormattedInputs.FirstOrDefault(x => (x.s == p[i]) && (x.e == p[i + 1])).d;
-                    var gap2 = FormattedInputs.FirstOrDefault(x => (x.e == p[i]) && (x.s == p[i + 1])).d;
-                    distance += gap1 + gap2;
+                    distance += FormattedInputs.FirstOrDefault(x => (x.s == p[i]) && (x.e == p[i + 1])).d;
+                    distance += FormattedInputs.FirstOrDefault(x => (x.e == p[i]) && (x.s == p[i + 1])).d;
                 }
                 distance += FormattedInputs.FirstOrDefault(x => (x.s == p.First()) && (x.e == p.Last())).d;
                 distance += FormattedInputs.FirstOrDefault(x => (x.e == p.First()) && (x.s == p.Last())).d;
@@ -46,10 +45,10 @@ namespace com.randyslavey.AdventOfCode
             return $"{Result}";
         }
 
-        public void GetInputData(string filePath)
+        public void GetInputData(string file)
         {
             var r = new Regex(@"^(.*) would (.*) (.*) happiness units by sitting next to (.*)\.$");
-            foreach(var line in File.ReadAllLines(filePath))
+            foreach(var line in File.ReadAllLines(file))
             {
                 var m = r.Match(line);
                 FormattedInputs.Add((m.Groups[1].Value, (int.Parse(m.Groups[3].Value)) * (m.Groups[2].Value == "gain" ? 1 : -1), m.Groups[4].Value));

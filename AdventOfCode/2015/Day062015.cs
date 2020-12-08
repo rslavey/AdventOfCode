@@ -47,9 +47,9 @@ namespace com.randyslavey.AdventOfCode
             return $"{Result}";
         }
 
-        public void GetInputData(string filePath)
+        public void GetInputData(string file)
         {
-            foreach(var line in File.ReadAllLines(filePath))
+            foreach(var line in File.ReadAllLines(file))
             {
                 var newLine = line.Replace("through ", "").Replace("turn on", "on").Replace("turn off", "off");
                 var action = newLine.Split(' ')[0];

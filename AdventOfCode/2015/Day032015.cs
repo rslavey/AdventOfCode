@@ -29,9 +29,9 @@ namespace com.randyslavey.AdventOfCode
             return $"{Result}";
         }
 
-        public void GetInputData(string filePath)
+        public void GetInputData(string file)
         {
-            InputValue = File.ReadAllLines(filePath)[0];
+            InputValue = File.ReadAllLines(file)[0];
             IndexedInputValues = InputValue.ToCharArray().Select((value, index) => (value, index));
         }
     }

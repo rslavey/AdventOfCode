@@ -143,9 +143,9 @@ namespace com.randyslavey.AdventOfCode
             }
         }
 
-        public void GetInputData(string filePath)
+        public void GetInputData(string file)
         {
-            foreach(var line in File.ReadAllLines(filePath))
+            foreach(var line in File.ReadAllLines(file))
             {
                 FormattedInputs.Add((line.Replace(" -> ","=").Split('=')[0], line.Replace(" -> ", "=").Split('=')[1]));
             }

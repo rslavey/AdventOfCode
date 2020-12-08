@@ -23,9 +23,9 @@ namespace com.randyslavey.AdventOfCode
             return InputValues.Select((item, index) => new { item, index }).Count(x => '#' == x.item.ToCharArray()[(x.index / ymove) * xmove % x.item.Length] && x.index % ymove == 0 && x.index > 0);
         }
 
-        public void GetInputData(string filePath)
+        public void GetInputData(string file)
         {
-            InputValues = File.ReadAllLines(filePath);
+            InputValues = File.ReadAllLines(file);
         }
     }
 }

@@ -22,9 +22,9 @@ namespace com.randyslavey.AdventOfCode
             return $"{Result}";
         }
 
-        public void GetInputData(string filePath)
+        public void GetInputData(string file)
         {
-            foreach(var line in File.ReadAllLines(filePath))
+            foreach(var line in File.ReadAllLines(file))
             {
 
                 var flen = line.Length;

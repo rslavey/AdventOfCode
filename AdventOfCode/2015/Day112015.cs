@@ -55,9 +55,9 @@ namespace com.randyslavey.AdventOfCode
 
             return isMatch;
         }
-        public void GetInputData(string filePath)
+        public void GetInputData(string file)
         {
-            InputValue = File.ReadAllLines(filePath)[0];
+            InputValue = File.ReadAllLines(file)[0];
         }
     }
 }
