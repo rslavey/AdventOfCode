@@ -194,6 +194,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="2015\Day172015.cs" />
+    <Compile Include="2015\Day162015.cs" />
     <Compile Include="2015\Day152015.cs" />
     <Compile Include="2015\Day142015.cs" />
     <Compile Include="2015\Day132015.cs" />
@@ -265,6 +267,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Inputs\2015\Day15Input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Inputs\2015\Day16Input-2.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Inputs\2015\Day16Input.txt">

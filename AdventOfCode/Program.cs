@@ -6,7 +6,7 @@ namespace com.randyslavey.AdventOfCode
     {
         static void Main(string[] args)
         {
-            RunCode("2015", "15", 2);
+            RunCode("2015", "17", 2);
             Console.ReadLine();
         }
 
