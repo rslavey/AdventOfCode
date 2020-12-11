@@ -23,18 +23,18 @@ namespace com.randyslavey.AdventOfCode
 
             IEnumerable<(string name, IEnumerable<int> speeds, int total)> race = reindeer.Select(x => (
                 x.name, 
-                Enumerable.Range(0, 2503).Select(t => speedAtTime(x, t)),
-                Enumerable.Range(0, 2503).Sum(t => speedAtTime(x, t))
+                Enumerable.Range(0, raceTime).Select(t => speedAtTime(x, t)),
+                Enumerable.Range(0, raceTime).Sum(t => speedAtTime(x, t))
                 )
             );
 
-            //var points = Enumerable.Range(0, 2503).Select(x => race.Select(xx => xx.speeds.Take(x).Sum()))
+            //var points = Enumerable.Range(0, raceTime).Select(x => race.Select(xx => xx.speeds.Take(x).Sum()))
 
             Result = partId == 1 ?
-                reindeer.Max(x => Enumerable.Range(0, 2503)
+                reindeer.Max(x => Enumerable.Range(0, raceTime)
                     .Sum(t => speedAtTime(x, t))
                 ) :
-                reindeer.Max(x => Enumerable.Range(0, 2503)
+                reindeer.Max(x => Enumerable.Range(0, raceTime)
                     .Sum(t => speedAtTime(x, t))
                 );
 
