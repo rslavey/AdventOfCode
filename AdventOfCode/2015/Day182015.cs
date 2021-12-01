@@ -6,17 +6,17 @@ using System.Linq;
 using System.Text.RegularExpressions;
 namespace com.randyslavey.AdventOfCode
 {
-    class Day182015 : IAdventOfCodeUngroupedData
+    class Day182015 : IAdventOfCodeData<string[]>
     {
         public int Result { get; set; }
-        public string[] InputValues { get; set; }
-        public bool[][] FormattedInputValues { get; set; }
+        public string[] Input { get; set; }
+        public bool[][] FormattedInput { get; set; }
 
         public string GetSolution(int partId)
         {
             var steps = 100;
             var gridSize = 100;
-            bool[,] f = JaggedToMultidimensional(FormattedInputValues);
+            bool[,] f = JaggedToMultidimensional(FormattedInput);
             if (partId == 2)
             {
                 f[0, 0] = true;
@@ -77,7 +77,7 @@ namespace com.randyslavey.AdventOfCode
 
         public void GetInputData(string file)
         {
-            FormattedInputValues = File.ReadAllLines(file).Select(x => x.ToCharArray().Select(xx => xx == '#').ToArray()).ToArray();
+            FormattedInput = File.ReadAllLines(file).Select(x => x.ToCharArray().Select(xx => xx == '#').ToArray()).ToArray();
         }
 
         public T[,] JaggedToMultidimensional<T>(T[][] jaggedArray)

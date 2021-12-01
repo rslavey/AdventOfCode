@@ -5,15 +5,15 @@ using System.Text;
 
 namespace com.randyslavey.AdventOfCode
 {
-    class Day102015 : IAdventOfCodeSingleData
+    class Day102015 : IAdventOfCodeData<string>
     {
         public string Result { get; set; }
-        public string InputValue { get; set; }
+        public string Input { get; set; }
 
         public string GetSolution(int partId)
         {
             return partId == 1 ?
-                $"{LookAndSay(InputValue, 50).Length}" :
+                $"{LookAndSay(Input, 50).Length}" :
                 "";
         }
 
@@ -40,7 +40,7 @@ namespace com.randyslavey.AdventOfCode
 
         public void GetInputData(string file)
         {
-            InputValue = File.ReadAllLines(file)[0];
+            Input = File.ReadAllLines(file)[0];
         }
     }
 }

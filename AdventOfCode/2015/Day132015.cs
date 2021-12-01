@@ -6,11 +6,11 @@ using System.Linq;
 using System.Text.RegularExpressions;
 namespace com.randyslavey.AdventOfCode
 {
-    class Day132015 : IAdventOfCodeUngroupedData
+    class Day132015 : IAdventOfCodeData<string[]>
     {
         public int Result { get; set; }
         public List<(string s, int d, string e)> FormattedInputs = new List<(string s, int d, string e)>();
-        public string[] InputValues { get; set; }
+        public string[] Input { get; set; }
 
         public string GetSolution(int partId)
         {

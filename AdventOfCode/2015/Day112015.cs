@@ -7,16 +7,16 @@ using System.Text.RegularExpressions;
 
 namespace com.randyslavey.AdventOfCode
 {
-    class Day112015 : IAdventOfCodeSingleData
+    class Day112015 : IAdventOfCodeData<string>
     {
         public string Result { get; set; }
-        public string InputValue { get; set; }
+        public string Input { get; set; }
         private static IEnumerable<char[]> charSetsOfThree { get; set; }
         public string GetSolution(int partId)
         {
             charSetsOfThree = Enumerable.Range('a', 24).Select(x => Enumerable.Range(x, 3).Select(xx => (char)xx).ToArray());
 
-            var curPass = InputValue.ToCharArray();
+            var curPass = Input.ToCharArray();
             NextValidPassword(ref curPass);
             
             return partId == 1 ?
@@ -57,7 +57,7 @@ namespace com.randyslavey.AdventOfCode
         }
         public void GetInputData(string file)
         {
-            InputValue = File.ReadAllLines(file)[0];
+            Input = File.ReadAllLines(file)[0];
         }
     }
 }

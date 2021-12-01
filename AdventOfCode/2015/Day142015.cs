@@ -6,16 +6,16 @@ using System.Linq;
 using System.Text.RegularExpressions;
 namespace com.randyslavey.AdventOfCode
 {
-    class Day142015 : IAdventOfCodeUngroupedData
+    class Day142015 : IAdventOfCodeData<string[]>
     {
         public int Result { get; set; }
-        public string[] InputValues { get; set; }
+        public string[] Input { get; set; }
 
         public string GetSolution(int partId)
         {
             var raceTime = 2503;
             var r = new Regex(@"^(\w+) can fly (\d+) km/s for (\d+) seconds, but then must rest for (\d+) seconds\.$");
-            IEnumerable<(string name, int speed, int active, int rest)> reindeer = InputValues.Select(x =>
+            IEnumerable<(string name, int speed, int active, int rest)> reindeer = Input.Select(x =>
                         ( r.Match(x).Groups[1].Value, int.Parse(r.Match(x).Groups[2].Value), int.Parse(r.Match(x).Groups[3].Value), int.Parse(r.Match(x).Groups[4].Value) )
                     );
 
@@ -48,7 +48,7 @@ namespace com.randyslavey.AdventOfCode
 
         public void GetInputData(string file)
         {
-            InputValues = File.ReadAllLines(file);
+            Input = File.ReadAllLines(file);
         }
     }
 }

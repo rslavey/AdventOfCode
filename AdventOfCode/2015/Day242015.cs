@@ -6,22 +6,22 @@ using System.Linq;
 using System.Text.RegularExpressions;
 namespace com.randyslavey.AdventOfCode
 {
-    class Day242015 : IAdventOfCodeUngroupedData
+    class Day242015 : IAdventOfCodeData<string[]>
     {
         public long Result { get; set; }
-        public string[] InputValues { get; set; }
-        public List<long> FormattedInputValues = new List<long>();
+        public string[] Input { get; set; }
+        public List<long> FormattedInput = new List<long>();
         List<List<long>> c = new List<List<long>>();
 
         public string GetSolution(int partId)
         {
-            var totalWeight = InputValues.Sum(x => int.Parse(x));
+            var totalWeight = Input.Sum(x => int.Parse(x));
             var groupWeight = totalWeight / (partId == 1 ? 3 : 4);
-            var packageCount = InputValues.Length;
+            var packageCount = Input.Length;
             
-            for (var i = 0; i < InputValues.Length; i++)
+            for (var i = 0; i < Input.Length; i++)
             {
-                c.AddRange(new Combinations<long>(FormattedInputValues, i).Select(x => x.ToList()).Where(x => x.Sum() == groupWeight).ToList());
+                c.AddRange(new Combinations<long>(FormattedInput, i).Select(x => x.ToList()).Where(x => x.Sum() == groupWeight).ToList());
                 if (c.Count() >= (partId == 1 ? 3 : 4))
                 {
                     break;
@@ -35,8 +35,8 @@ namespace com.randyslavey.AdventOfCode
 
         public void GetInputData(string file)
         {
-            InputValues = File.ReadAllLines(file);
-            FormattedInputValues = InputValues.Select(x => long.Parse(x)).OrderByDescending(x => x).ToList();
+            Input = File.ReadAllLines(file);
+            FormattedInput = Input.Select(x => long.Parse(x)).OrderByDescending(x => x).ToList();
         }
     }
 }

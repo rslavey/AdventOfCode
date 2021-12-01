@@ -6,19 +6,19 @@ using System.Linq;
 using System.Text.RegularExpressions;
 namespace com.randyslavey.AdventOfCode
 {
-    class Day172015 : IAdventOfCodeUngroupedData
+    class Day172015 : IAdventOfCodeData<string[]>
     {
         public int Result { get; set; }
-        public string[] InputValues { get; set; }
-        public List<int> FormattedInputValues { get; set; }
+        public string[] Input { get; set; }
+        public List<int> FormattedInput { get; set; }
 
         public string GetSolution(int partId)
         {
             var target = 150;
-            var c = new Combinations<int>(FormattedInputValues, 2).ToList();
-            for (var i = 3; i <= FormattedInputValues.Count(); i++)
+            var c = new Combinations<int>(FormattedInput, 2).ToList();
+            for (var i = 3; i <= FormattedInput.Count(); i++)
             {
-                c = c.Concat(new Combinations<int>(FormattedInputValues, i)).ToList();
+                c = c.Concat(new Combinations<int>(FormattedInput, i)).ToList();
             }
 
             var answers = c.Where(x => x.Sum() == target).ToList();
@@ -31,7 +31,7 @@ namespace com.randyslavey.AdventOfCode
 
         public void GetInputData(string file)
         {
-            FormattedInputValues = File.ReadAllLines(file).Select(x => int.Parse(x)).ToList();
+            FormattedInput = File.ReadAllLines(file).Select(x => int.Parse(x)).ToList();
         }
     }
 }

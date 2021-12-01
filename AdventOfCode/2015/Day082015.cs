@@ -5,11 +5,11 @@ using System.Text.RegularExpressions;
 
 namespace com.randyslavey.AdventOfCode
 {
-    class Day082015 : IAdventOfCodeUngroupedData
+    class Day082015 : IAdventOfCodeData<string[]>
     {
         public int Result { get; set; }
         public List<(int flen, int uel, int el)> FormattedInputs = new List<(int flen, int uel, int el)>();
-        public string[] InputValues { get; set; }
+        public string[] Input { get; set; }
 
         private static readonly Dictionary<string, ushort> cache = new Dictionary<string, ushort>();
 

@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text.RegularExpressions;
 namespace com.randyslavey.AdventOfCode
 {
-    class Day162015 : IAdventOfCodeUngroupedData
+    class Day162015 : IAdventOfCodeData<string[]>
     {
         public int Result { get; set; }
-        public string[] InputValues { get; set; }
+        public string[] Input { get; set; }
         List<(int index, Dictionary<string, int> compounds)> FormattedInputs = new List<(int index, Dictionary<string, int> compounds)>();
         Dictionary<string, int> AnalysisData = new Dictionary<string, int>();
 

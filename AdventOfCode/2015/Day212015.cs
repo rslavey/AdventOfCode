@@ -6,16 +6,16 @@ using System.Linq;
 using System.Text.RegularExpressions;
 namespace com.randyslavey.AdventOfCode
 {
-    class Day212015 : IAdventOfCodeUngroupedData
+    class Day212015 : IAdventOfCodeData<string[]>
     {
         public int Result { get; set; }
-        public string[] InputValues { get; set; }
+        public string[] Input { get; set; }
 
         public string GetSolution(int partId)
         {
-            var hp = int.Parse(InputValues[0].Split(':')[1].Trim());
-            var d = int.Parse(InputValues[1].Split(':')[1].Trim());
-            var a = int.Parse(InputValues[2].Split(':')[1].Trim());
+            var hp = int.Parse(Input[0].Split(':')[1].Trim());
+            var d = int.Parse(Input[1].Split(':')[1].Trim());
+            var a = int.Parse(Input[2].Split(':')[1].Trim());
             var myStartingHP = 100;
             var minCost = int.MaxValue;
             var maxCost = 0;
@@ -117,7 +117,7 @@ namespace com.randyslavey.AdventOfCode
 
         public void GetInputData(string file)
         {
-            InputValues = File.ReadAllLines(file);
+            Input = File.ReadAllLines(file);
         }
 
     }

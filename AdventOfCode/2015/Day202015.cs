@@ -6,14 +6,14 @@ using System.Linq;
 using System.Text.RegularExpressions;
 namespace com.randyslavey.AdventOfCode
 {
-    class Day202015 : IAdventOfCodeSingleData
+    class Day202015 : IAdventOfCodeData<string>
     {
         public int Result { get; set; }
-        public string InputValue { get; set; }
+        public string Input { get; set; }
 
         public string GetSolution(int partId)
         {
-            var target = int.Parse(InputValue);
+            var target = int.Parse(Input);
 
             var house = 0;
             var presents = 0;
@@ -69,7 +69,7 @@ namespace com.randyslavey.AdventOfCode
 
         public void GetInputData(string file)
         {
-            InputValue = File.ReadAllText(file);
+            Input = File.ReadAllText(file);
         }
 
     }

@@ -4,10 +4,10 @@ using System.Linq;
 
 namespace com.randyslavey.AdventOfCode
 {
-    class Day032020 : IAdventOfCode
+    class Day032020 : IAdventOfCodeData<string[]>
     {
         public int Result { get; set; }
-        public string[] InputValues { get; set; }
+        public string[] Input { get; set; }
 
         public string GetSolution(int part)
         {
@@ -20,12 +20,12 @@ namespace com.randyslavey.AdventOfCode
 
         private int GetModulo(int xmove, int ymove)
         {
-            return InputValues.Select((item, index) => new { item, index }).Count(x => '#' == x.item.ToCharArray()[(x.index / ymove) * xmove % x.item.Length] && x.index % ymove == 0 && x.index > 0);
+            return Input.Select((item, index) => new { item, index }).Count(x => '#' == x.item.ToCharArray()[(x.index / ymove) * xmove % x.item.Length] && x.index % ymove == 0 && x.index > 0);
         }
 
         public void GetInputData(string file)
         {
-            InputValues = File.ReadAllLines(file);
+            Input = File.ReadAllLines(file);
         }
     }
 }

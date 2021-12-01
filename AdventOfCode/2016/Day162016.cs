@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text.RegularExpressions;
 namespace com.randyslavey.AdventOfCode
 {
-    class Day162016 : IAdventOfCodeUngroupedData
+    class Day162016 : IAdventOfCodeData<string[]>
     {
         public string Result { get; set; }
-        public string[] InputValues { get; set; }
+        public string[] Input { get; set; }
 
         public string GetSolution(int partId)
         {
@@ -18,7 +18,7 @@ namespace com.randyslavey.AdventOfCode
 
         public void GetInputData(string file)
         {
-            InputValues = File.ReadAllLines(file);
+            Input = File.ReadAllLines(file);
         }
 
     }

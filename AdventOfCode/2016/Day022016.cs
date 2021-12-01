@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text.RegularExpressions;
 namespace com.randyslavey.AdventOfCode
 {
-    class Day022016 : IAdventOfCodeUngroupedData
+    class Day022016 : IAdventOfCodeData<string[]>
     {
         public string Result { get; set; }
-        public string[] InputValues { get; set; }
+        public string[] Input { get; set; }
 
         List<char[]> FI = new List<char[]>();
 

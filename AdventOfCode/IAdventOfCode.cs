@@ -7,20 +7,8 @@ namespace com.randyslavey.AdventOfCode
         string GetSolution(int partId);
         void GetInputData(string file);
     }
-    public interface IAdventOfCodeGroupedData : IAdventOfCode
+    public interface IAdventOfCodeData<T> : IAdventOfCode
     {
-        IEnumerable<IEnumerable<string>> GroupedInputs { get; set; }
+        T Input { get; set; }
     }
-
-    public interface IAdventOfCodeUngroupedData : IAdventOfCode
-    {
-        string[] InputValues { get; set; }
-    }
-
-    public interface IAdventOfCodeSingleData : IAdventOfCode
-    {
-        string InputValue { get; set; }
-
-    }
-
 }

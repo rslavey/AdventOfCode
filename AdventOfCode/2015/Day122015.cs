@@ -8,15 +8,15 @@ using System.Text.RegularExpressions;
 
 namespace com.randyslavey.AdventOfCode
 {
-    class Day122015 : IAdventOfCodeSingleData
+    class Day122015 : IAdventOfCodeData<string>
     {
         public int Result { get; set; }
-        public string InputValue { get; set; }
+        public string Input { get; set; }
         private static IEnumerable<char[]> charSetsOfThree { get; set; }
         public string GetSolution(int partId)
         {
-            var itemValues = GetNumbers(JObject.Parse(InputValue).Children().ToList(), 0d, new List<JToken>());
-            var nonRedChildren = GetNonRedNumbers(JObject.Parse(InputValue).Children().ToList(), 0d, new List<JToken>());
+            var itemValues = GetNumbers(JObject.Parse(Input).Children().ToList(), 0d, new List<JToken>());
+            var nonRedChildren = GetNonRedNumbers(JObject.Parse(Input).Children().ToList(), 0d, new List<JToken>());
             Result = partId == 1 ?
                 itemValues.Where(x => x.Type == JTokenType.Integer).Sum(x => (int)x) :
                 nonRedChildren.Where(x => x.Type == JTokenType.Integer).Sum(x => (int)x) ;
@@ -61,7 +61,7 @@ namespace com.randyslavey.AdventOfCode
 
         public void GetInputData(string file)
         {
-            InputValue = File.ReadAllLines(file)[0];
+            Input = File.ReadAllLines(file)[0];
         }
 
 

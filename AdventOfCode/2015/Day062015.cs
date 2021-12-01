@@ -4,11 +4,11 @@ using System.Linq;
 
 namespace com.randyslavey.AdventOfCode
 {
-    class Day062015 : IAdventOfCodeUngroupedData
+    class Day062015 : IAdventOfCodeData<string[]>
     {
         public int Result { get; set; }
         public List<(string action, int[] start, int[] end)> FormattedInputs = new List<(string action, int[] start, int[] end)>();
-        public string[] InputValues { get; set; }
+        public string[] Input { get; set; }
 
         public string GetSolution(int partId)
         {

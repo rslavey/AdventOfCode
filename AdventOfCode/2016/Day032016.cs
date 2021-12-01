@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text.RegularExpressions;
 namespace com.randyslavey.AdventOfCode
 {
-    class Day032016 : IAdventOfCodeUngroupedData
+    class Day032016 : IAdventOfCodeData<string[]>
     {
         public int Result { get; set; }
-        public string[] InputValues { get; set; }
+        public string[] Input { get; set; }
         public List<List<int>> FI = new List<List<int>>();
 
 
@@ -50,7 +50,7 @@ namespace com.randyslavey.AdventOfCode
                 List<int> nums = new List<int>{ int.Parse(m[1].Value), int.Parse(m[2].Value), int.Parse(m[3].Value) };
                 FI.Add(nums);
             }
-            InputValues = File.ReadAllLines(file);
+            Input = File.ReadAllLines(file);
         }
 
     }

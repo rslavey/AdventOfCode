@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text.RegularExpressions;
 namespace com.randyslavey.AdventOfCode
 {
-    class Day152015 : IAdventOfCodeUngroupedData
+    class Day152015 : IAdventOfCodeData<string[]>
     {
         public int Result { get; set; }
-        public string[] InputValues { get; set; }
+        public string[] Input { get; set; }
         List<(string ingredient, int capacity, int durability, int flavor, int texture, int calories)> FormattedInputs = new List<(string ingredient, int capacity, int durability, int flavor, int texture, int calories)>();
         public string GetSolution(int partId)
         {

@@ -4,26 +4,26 @@ using System.Linq;
 
 namespace com.randyslavey.AdventOfCode
 {
-    class Day032015 : IAdventOfCodeSingleData
+    class Day032015 : IAdventOfCodeData<string>
     {
         public int Result { get; set; }
-        public string InputValue { get; set; }
-        public IEnumerable<(char value, int index)> IndexedInputValues { get; private set; }
+        public string Input { get; set; }
+        public IEnumerable<(char value, int index)> IndexedInput { get; private set; }
 
         public string GetSolution(int partId)
         {
             Result = partId == 1 ?
-                IndexedInputValues
+                IndexedInput
                     .Select(x => new
                     {
-                        h = IndexedInputValues.Count(xx => xx.index < x.index && xx.value == '>') - IndexedInputValues.Count(xx => xx.index < x.index && xx.value == '<'),
-                        v = IndexedInputValues.Count(xx => xx.index < x.index && xx.value == '^') - IndexedInputValues.Count(xx => xx.index < x.index && xx.value == 'v')
+                        h = IndexedInput.Count(xx => xx.index < x.index && xx.value == '>') - IndexedInput.Count(xx => xx.index < x.index && xx.value == '<'),
+                        v = IndexedInput.Count(xx => xx.index < x.index && xx.value == '^') - IndexedInput.Count(xx => xx.index < x.index && xx.value == 'v')
                     }).GroupBy(x => new { x.h, x.v }).Distinct().Count() :
-                IndexedInputValues
+                IndexedInput
                     .Select(x => new
                     {
-                        h = IndexedInputValues.Count(xx => xx.index < x.index && xx.index % 2 == x.index % 2 && xx.value == '>') - IndexedInputValues.Count(xx => xx.index < x.index && xx.index % 2 == x.index % 2 && xx.value == '<'),
-                        v = IndexedInputValues.Count(xx => xx.index < x.index && xx.index % 2 == x.index % 2 && xx.value == '^') - IndexedInputValues.Count(xx => xx.index < x.index && xx.index % 2 == x.index % 2 && xx.value == 'v')
+                        h = IndexedInput.Count(xx => xx.index < x.index && xx.index % 2 == x.index % 2 && xx.value == '>') - IndexedInput.Count(xx => xx.index < x.index && xx.index % 2 == x.index % 2 && xx.value == '<'),
+                        v = IndexedInput.Count(xx => xx.index < x.index && xx.index % 2 == x.index % 2 && xx.value == '^') - IndexedInput.Count(xx => xx.index < x.index && xx.index % 2 == x.index % 2 && xx.value == 'v')
                     }).GroupBy(x => new { x.h, x.v }).Distinct().Count();
 
             return $"{Result}";
@@ -31,8 +31,8 @@ namespace com.randyslavey.AdventOfCode
 
         public void GetInputData(string file)
         {
-            InputValue = File.ReadAllLines(file)[0];
-            IndexedInputValues = InputValue.ToCharArray().Select((value, index) => (value, index));
+            Input = File.ReadAllLines(file)[0];
+            IndexedInput = Input.ToCharArray().Select((value, index) => (value, index));
         }
     }
 }

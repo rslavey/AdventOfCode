@@ -8,11 +8,11 @@ using System.Threading;
 
 namespace com.randyslavey.AdventOfCode
 {
-    class Day222015 : IAdventOfCodeUngroupedData
+    class Day222015 : IAdventOfCodeData<string[]>
     {
 		//NOTE: I quit on part 2. It ran fine on part 1, but it never found an answer on part 2, and I didn't want to write an entire game. This solution belongs to https://gist.github.com/markheath/7e3fa33f54f012136083#file-advent-of-code-day-22-cs
 		public int Result { get; set; }
-        public string[] InputValues { get; set; }
+        public string[] Input { get; set; }
 
         public string GetSolution(int partId)
         {
@@ -30,7 +30,7 @@ namespace com.randyslavey.AdventOfCode
 
         public void GetInputData(string file)
         {
-            InputValues = File.ReadAllLines(file);
+            Input = File.ReadAllLines(file);
         }
 
 		class QueueSpellChooser : ISpellChooser

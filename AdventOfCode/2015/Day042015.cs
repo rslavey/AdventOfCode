@@ -6,11 +6,11 @@ using System.Text;
 
 namespace com.randyslavey.AdventOfCode
 {
-    class Day042015 : IAdventOfCodeSingleData
+    class Day042015 : IAdventOfCodeData<string>
     {
         public int Result { get; set; }
-        public string InputValue { get; set; }
-        public IEnumerable<(char value, int index)> IndexedInputValues { get; private set; }
+        public string Input { get; set; }
+        public IEnumerable<(char value, int index)> IndexedInput { get; private set; }
 
         public string GetSolution(int partId)
         {
@@ -20,7 +20,7 @@ namespace com.randyslavey.AdventOfCode
 
             while (hash.Substring(0,6) != "000000")
             {
-                var hashString = $"{InputValue}{++counter}";
+                var hashString = $"{Input}{++counter}";
                 md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(hashString));
                 byte[] result = md5.Hash;
 
@@ -41,8 +41,8 @@ namespace com.randyslavey.AdventOfCode
 
         public void GetInputData(string file)
         {
-            InputValue = File.ReadAllLines(file)[0];
-            IndexedInputValues = InputValue.ToCharArray().Select((value, index) => (value, index));
+            Input = File.ReadAllLines(file)[0];
+            IndexedInput = Input.ToCharArray().Select((value, index) => (value, index));
         }
     }
 }

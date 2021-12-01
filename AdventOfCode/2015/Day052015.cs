@@ -5,11 +5,11 @@ using System.Text.RegularExpressions;
 
 namespace com.randyslavey.AdventOfCode
 {
-    class Day052015 : IAdventOfCodeUngroupedData
+    class Day052015 : IAdventOfCodeData<string[]>
     {
         public int Result { get; set; }
-        public string[] InputValues { get; set; }
-        public IEnumerable<(char value, int index)> IndexedInputValues { get; private set; }
+        public string[] Input { get; set; }
+        public IEnumerable<(char value, int index)> IndexedInput { get; private set; }
 
         public string GetSolution(int partId)
         {
@@ -19,15 +19,15 @@ namespace com.randyslavey.AdventOfCode
             var rGap = new Regex(@"(..).*\1");
             var rPairs = new Regex(@"(.).\1");
             Result = partId == 1 ?
-                InputValues.Count(x => x.ToCharArray().Count(xx => "aeiou".Contains(xx)) >= 3 && rRepeat.IsMatch(x) && rBadStrings.IsMatch(x)) :
-                InputValues.Count(x => rGap.IsMatch(x) && rPairs.IsMatch(x));
+                Input.Count(x => x.ToCharArray().Count(xx => "aeiou".Contains(xx)) >= 3 && rRepeat.IsMatch(x) && rBadStrings.IsMatch(x)) :
+                Input.Count(x => rGap.IsMatch(x) && rPairs.IsMatch(x));
 
             return $"{Result}";
         }
 
         public void GetInputData(string file)
         {
-            InputValues = File.ReadAllLines(file);
+            Input = File.ReadAllLines(file);
         }
     }
 }

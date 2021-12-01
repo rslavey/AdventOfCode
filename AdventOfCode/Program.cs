@@ -7,9 +7,9 @@ namespace com.randyslavey.AdventOfCode
     {
         static void Main(string[] args)
         {
-            //MakeTemplate("2016", @"D:\Users\Randy\source\repos\AdventOfCode\AdventOfCode");
-            RunCode("2016", "03", 2);
+            RunCode("2021", "01", 2);
             Console.ReadLine();
+            //MakeTemplate("2016", @"D:\Users\Randy\source\repos\AdventOfCode\AdventOfCode");
         }
 
         private static void RunCode(string yearId, string dayId, int partId = 1)

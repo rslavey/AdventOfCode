@@ -6,18 +6,18 @@ using System.Linq;
 using System.Text.RegularExpressions;
 namespace com.randyslavey.AdventOfCode
 {
-    class Day192015 : IAdventOfCodeUngroupedData
+    class Day192015 : IAdventOfCodeData<string[]>
     {
         public int Result { get; set; }
-        public string[] InputValues { get; set; }
-        public List<(string mol, string r)> FormattedInputValues = new List<(string mol, string r)>();
+        public string[] Input { get; set; }
+        public List<(string mol, string r)> FormattedInput = new List<(string mol, string r)>();
         public string Molecule;
         public HashSet<string> ResultingMols = new HashSet<string>();
         public string GetSolution(int partId)
         {
             if (partId == 1)
             {
-                foreach(var (mol, r) in FormattedInputValues)
+                foreach(var (mol, r) in FormattedInput)
                 {
                     for (var i = 0; i < Molecule.Length; i++)
                     {
@@ -45,7 +45,7 @@ namespace com.randyslavey.AdventOfCode
                 var count = 0;
                 while (Molecule != "e")
                 {
-                    foreach(var mol in FormattedInputValues.OrderByDescending(x => x.r.Length))
+                    foreach(var mol in FormattedInput.OrderByDescending(x => x.r.Length))
                     {
                         if (mol.r == Molecule)
                         {
@@ -81,7 +81,7 @@ namespace com.randyslavey.AdventOfCode
                 {
                     break;
                 }
-                FormattedInputValues.Add((r.Match(line).Groups[1].Value, r.Match(line).Groups[2].Value));
+                FormattedInput.Add((r.Match(line).Groups[1].Value, r.Match(line).Groups[2].Value));
             }
             Molecule = File.ReadLines(file).Last();
         }
