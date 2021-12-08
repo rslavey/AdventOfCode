@@ -6,19 +6,37 @@ using System.Linq;
 using System.Text.RegularExpressions;
 namespace com.randyslavey.AdventOfCode
 {
-    class Day072021 : IAdventOfCodeData<string[]>
+    class Day072021 : IAdventOfCodeData<int[]>
     {
         public string Result { get; set; }
-        public string[] Input { get; set; }
+        public int[] Input { get; set; }
 
         public string GetSolution(int partId)
         {
-            return $"{Result}";
+
+            (int pos, int dist) minDistance = (-1, int.MaxValue);
+            for (var i = Input.Min(); i <= Input.Max(); i++)
+            {
+                var dist = Input.Select(x => GetGas(Math.Abs(x - i), partId)).Sum();
+                minDistance = dist < minDistance.dist ? (i, dist) : minDistance;
+            }
+            return $"{minDistance.dist}";
+        }
+
+        private int GetGas(int v, int partId)
+        {
+            switch (partId)
+            {
+                case 1:
+                    return v;
+                default:
+                    return v * (v + 1) / 2;
+            }
         }
 
         public void GetInputData(string file)
         {
-            Input = File.ReadAllLines(file);
+            Input = File.ReadAllLines(file)[0].Split(',').Select(x => int.Parse(x)).ToArray();
         }
 
     }
