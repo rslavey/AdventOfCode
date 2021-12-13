@@ -7,7 +7,7 @@ namespace com.randyslavey.AdventOfCode
     {
         static void Main(string[] args)
         {
-            RunCode("2021", "08", 2);
+            RunCode("2021", "13", 1);
             Console.ReadLine();
             //MakeTemplate("2016", @"D:\Users\Randy\source\repos\AdventOfCode\AdventOfCode");
         }
